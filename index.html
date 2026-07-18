@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Noto - Your Second Brain</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="description" content="Noto is a free, open source note-taking app with Cortex AI. Brain dumps, voice notes, smart search, and AI-powered insights.">
+  <meta property="og:title" content="Noto - Your Second Brain">
+  <meta property="og:description" content="A free, open source note-taking app with Cortex AI. Your data stays on your device.">
+  <meta property="og:image" content="og-image.svg">
+  <meta name="theme-color" content="#d5c8e6">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap');
 
@@ -596,6 +602,126 @@
       opacity: 0.4; letter-spacing: 1.2rem;
     }
 
+    /* ── Logo section ── */
+    .logo-section {
+      position: relative; z-index: 1;
+      max-width: 800px; margin: 0 auto;
+      padding: 1rem 2rem 4rem;
+    }
+
+    .logo-card {
+      display: flex; align-items: center; gap: 2.5rem;
+      background: var(--paper);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 2px 10px var(--shadow);
+    }
+
+    .logo-showcase {
+      flex-shrink: 0;
+    }
+
+    .logo-big {
+      width: 140px; height: 140px;
+      border-radius: 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+    }
+
+    .logo-big:hover {
+      transform: rotate(-5deg) scale(1.05);
+    }
+
+    .logo-text h2 {
+      font-family: 'Caveat', cursive;
+      font-size: 1.8rem; font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .logo-text > p:first-of-type {
+      font-family: 'Caveat', cursive;
+      font-size: 1.2rem; color: var(--text-light);
+      margin-bottom: 0.8rem;
+    }
+
+    .logo-desc {
+      font-size: 0.92rem; color: var(--text-light);
+      line-height: 1.65; margin-bottom: 0.5rem;
+    }
+
+    .logo-desc strong { color: var(--text); font-weight: 600; }
+
+    /* ── Share section ── */
+    .share-section {
+      position: relative; z-index: 1;
+      max-width: 700px; margin: 0 auto;
+      padding: 2rem 2rem 5rem;
+    }
+
+    .share-card {
+      text-align: center;
+      padding: 2.5rem;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(242, 212, 215, 0.15), rgba(213, 200, 230, 0.15));
+      border: 2px dashed var(--lavender);
+    }
+
+    .share-card h2 {
+      font-family: 'Caveat', cursive;
+      font-size: 2rem; font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .share-card > p {
+      color: var(--text-light);
+      font-size: 0.95rem; line-height: 1.7;
+      max-width: 500px; margin: 0 auto 1.5rem;
+    }
+
+    .share-buttons {
+      display: flex; justify-content: center;
+      gap: 0.8rem; flex-wrap: wrap;
+    }
+
+    .share-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.65rem 1.3rem;
+      border-radius: 100px;
+      font-family: 'Caveat', cursive;
+      font-size: 1.05rem; font-weight: 600;
+      text-decoration: none;
+      cursor: pointer; border: 2px dashed;
+      transition: all 0.25s;
+      background: none;
+    }
+
+    .share-btn:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+
+    .share-copy {
+      border-color: var(--lavender-deep); color: #7c5fb0;
+      background: rgba(213, 200, 230, 0.2);
+    }
+
+    .share-twitter {
+      border-color: var(--sky); color: #5a8ab0;
+      background: rgba(196, 215, 235, 0.2);
+    }
+
+    .share-reddit {
+      border-color: var(--peach-deep); color: #b07050;
+      background: rgba(245, 213, 192, 0.2);
+    }
+
+    .share-note {
+      font-family: 'Caveat', cursive;
+      font-size: 1rem; color: var(--sage-deep);
+      margin-top: 1rem; min-height: 1.5em;
+    }
+
     /* ── Footer ── */
     footer {
       position: relative; z-index: 1;
@@ -658,6 +784,10 @@
       .adhd-card { padding: 1.8rem 1.2rem; }
       .adhd-grid { grid-template-columns: 1fr; }
       .adhd-item { padding: 1rem; }
+      .logo-card { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
+      .logo-big { width: 110px; height: 110px; }
+      .share-card { padding: 2rem 1.2rem; }
+      .share-buttons { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
@@ -784,6 +914,21 @@
     </div>
   </section>
 
+  <!-- Why this logo -->
+  <section class="logo-section">
+    <div class="logo-card">
+      <div class="logo-showcase">
+        <img src="favicon.svg" alt="Noto icon" class="logo-big">
+      </div>
+      <div class="logo-text">
+        <h2>why this logo?</h2>
+        <p>it's just a letter on a page. that's it.</p>
+        <p class="logo-desc">we kept it simple on purpose. no fancy gradients, no abstract shapes, no 3D renders. just an <strong>N</strong> on lined paper &mdash; because that's what Noto is. a place to write stuff down. the logo looks like the app feels: <strong>clean, minimal, no noise</strong>.</p>
+        <p class="logo-desc">the pastel gradient is soft on the eyes. the notebook lines remind you it's a place for your thoughts. no overwhelming design, no clutter &mdash; just like the app itself.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Power pills -->
   <div class="power-bar">
     <a href="#features" class="power-pill">&#x1F4A1; features</a>
@@ -793,66 +938,25 @@
     <a href="#free" class="power-pill" style="background: rgba(184, 230, 208, 0.3); border-color: var(--sage-deep); color: #407058;">&#x1F4B0; free forever</a>
   </div>
 
-  <!-- Features -->
-  <section class="features" id="features">
-    <h2>what's inside?</h2>
-    <p class="subtitle">things we think you'll really like</p>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">&#x1F9E0;</div>
-        <h3>Cortex AI</h3>
-        <p>Summarize long notes in seconds, get explanations for anything you saved, quiz yourself to actually remember things, or just chat &mdash; all powered by OpenAI or your own local Ollama models.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#x1F399;&#xFE0F;</div>
-        <h3>Voice Notes</h3>
-        <p>Talk to Noto and it writes it all down for you. Whisper magic transcribes everything.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#x2728;</div>
-        <h3>Brain Dump</h3>
-        <p>Type and forget. Everything auto-saves before you can even blink.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#x1F50D;</div>
-        <h3>Search Everything</h3>
-        <p>Find that one note from three weeks ago. Full-text search + voice input.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#x1F3A8;</div>
-        <h3>8 Pretty Themes</h3>
-        <p>Dark, Light, Midnight, Solarized, Nord, Dracula, Tokyo Night, Gruvbox &mdash; pick your vibe.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">&#x1F4F1;</div>
-        <h3>Everywhere</h3>
-        <p>iOS, Android, macOS, Windows, Linux. Your notes follow you around.</p>
-      </div>
-    </div>
-  </section>
+  
 
-  <div class="doodle-divider">&#x2726; &#x2726; &#x2726;</div>
-
-  <!-- Platforms -->
-  <section class="platforms" id="platforms">
-    <p>coming to</p>
-    <div class="platform-icons">
-      <div class="platform-icon">
-        <span class="icon">&#x1F34E;</span>
-        iOS* &amp; macOS
+  <!-- Share with friends -->
+  <section class="share-section">
+    <div class="share-card">
+      <h2>know someone who needs this? &#x1F4AC;</h2>
+      <p>send this to a friend who loses their thoughts, forgets their ideas, or has 47 half-finished notes in 12 different apps.</p>
+      <div class="share-buttons">
+        <button class="share-btn share-copy" onclick="copyLink()">
+          <span>&#x1F517;</span> copy link
+        </button>
+        <a class="share-btn share-twitter" href="https://twitter.com/intent/tweet?text=check%20out%20Noto%20%E2%80%94%20a%20free%2C%20open-source%20note-taking%20app%20with%20AI%20built%20in.%20your%20data%20stays%20yours.%20%23NotoApp" target="_blank" rel="noopener">
+          <span>&#x1F426;</span> tweet it
+        </a>
+        <a class="share-btn share-reddit" href="https://reddit.com/submit?url=&title=check%20out%20Noto%20%E2%80%94%20a%20free%2C%20open-source%20note-taking%20app%20with%20AI" target="_blank" rel="noopener">
+          <span>&#x1F4A7;</span> share on reddit
+        </a>
       </div>
-      <div class="platform-icon">
-        <span class="icon">&#x1F916;</span>
-        Android
-      </div>
-      <div class="platform-icon">
-        <span class="icon">&#x1F5A5;&#xFE0F;</span>
-        Windows
-      </div>
-      <div class="platform-icon">
-        <span class="icon">&#x1F427;</span>
-        Linux
-      </div>
+      <p class="share-note" id="copyNote"></p>
     </div>
   </section>
 
@@ -894,6 +998,14 @@
         document.body.appendChild(piece);
         setTimeout(() => piece.remove(), 2500);
       }
+    }
+
+    // ── Copy link ──
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        document.getElementById('copyNote').textContent = 'link copied! now paste it to that friend who needs this \u2728';
+        setTimeout(() => { document.getElementById('copyNote').textContent = ''; }, 3000);
+      });
     }
 
     // ── Email signup ──
