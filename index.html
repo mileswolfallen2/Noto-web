@@ -726,6 +726,7 @@
     <h1>Your <span class="rainbow-text">second brain</span><br>is almost here :)</h1>
     <p>A fun little note-taking app with <strong>Cortex AI</strong> that actually helps &mdash; it summarizes your notes, quizzes you on stuff you saved, cleans up your messy thoughts, and explains things in plain language. Plus brain dumps, voice notes, and search that works. <strong>And it's 100% free.</strong></p>
     <form class="signup-form" action="https://formspree.io/f/mgogkewa" method="POST" onsubmit="handleSignup(event)">
+      <input type="hidden" name="_subject" value="Noto - New subscriber">
       <input type="email" name="email" placeholder="drop your email here..." required>
       <button type="submit">Notify Me!</button>
     </form>
@@ -899,7 +900,7 @@
     async function handleSignup(e) {
       e.preventDefault();
       const form = e.target;
-      const input = form.querySelector('input');
+      const input = form.querySelector('input[type="email"]');
       const btn = form.querySelector('button');
 
       btn.textContent = 'sending...';
@@ -913,20 +914,22 @@
         });
 
         if (res.ok) {
+          const email = input.value;
           input.value = '';
           input.disabled = true;
-          btn.textContent = 'subscribed! \\u2728';
+          btn.textContent = 'subscribed!';
           btn.style.background = 'linear-gradient(135deg, var(--sage), var(--sage-deep))';
           btn.style.borderColor = 'var(--sage-deep)';
           document.getElementById('successMsg').style.display = 'block';
           fireConfetti();
         } else {
-          throw new Error('Submit failed');
+          const data = await res.json();
+          throw new Error(data.error || 'Submit failed');
         }
-      } catch {
+      } catch (err) {
         btn.textContent = 'try again';
         btn.disabled = false;
-        alert('Something went wrong. Please try again.');
+        alert('hmm that didn\'t work. try again? (' + err.message + ')');
       }
     }
   </script>
