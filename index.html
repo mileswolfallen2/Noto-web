@@ -269,20 +269,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── Sparkle burst on click ── */
-    .sparkle {
-      position: fixed;
-      pointer-events: none;
-      z-index: 9999;
-      font-size: 1.2rem;
-      animation: sparklePop 0.6s ease-out forwards;
-    }
-
-    @keyframes sparklePop {
-      0% { opacity: 1; transform: scale(0.5) translateY(0); }
-      100% { opacity: 0; transform: scale(1.2) translateY(-40px); }
-    }
-
     /* ── Email signup ── */
     .signup-form {
       display: flex; gap: 0.5rem;
@@ -949,10 +935,10 @@
         <button class="share-btn share-copy" onclick="copyLink()">
           <span>&#x1F517;</span> copy link
         </button>
-        <a class="share-btn share-twitter" href="https://twitter.com/intent/tweet?text=check%20out%20Noto%20%E2%80%94%20a%20free%2C%20open-source%20note-taking%20app%20with%20AI%20built%20in.%20your%20data%20stays%20yours.%20%23NotoApp" target="_blank" rel="noopener">
+        <a class="share-btn share-twitter" href="https://twitter.com/intent/tweet?text=check%20out%20Noto%20%E2%80%94%20a%20free%2C%20open-source%20note-taking%20app%20with%20AI%20built%20in.%20your%20data%20stays%20yours.%20%23NotoApp02https://noto.fedl.site" target="_blank" rel="noopener">
           <span>&#x1F426;</span> tweet it
         </a>
-        <a class="share-btn share-reddit" href="https://reddit.com/submit?url=&title=check%20out%20Noto%20%E2%80%94%20a%20free%2C%20open-source%20note-taking%20app%20with%20AI" target="_blank" rel="noopener">
+        <a class="share-btn share-reddit" href="https://reddit.com/submit?url=&title=check%20out%20Noto%20%E2%80%94%20a%20free%2C%20open-source%20note-taking%20app%20with%20AI%20https://noto.fedl.site" target="_blank" rel="noopener">
           <span>&#x1F4A7;</span> share on reddit
         </a>
       </div>
@@ -965,22 +951,6 @@
   </footer>
 
   <script>
-    // ── Sparkle burst on every click ──
-    const sparkleEmojis = ['&#x2728;', '&#x2B50;', '&#x1F31F;', '&#x2764;&#xFE0F;', '&#x1F4A1;'];
-
-    document.addEventListener('click', (e) => {
-      for (let i = 0; i < 4; i++) {
-        const el = document.createElement('div');
-        el.className = 'sparkle';
-        el.innerHTML = sparkleEmojis[Math.floor(Math.random() * sparkleEmojis.length)];
-        el.style.left = (e.clientX + (Math.random() - 0.5) * 40) + 'px';
-        el.style.top = (e.clientY + (Math.random() - 0.5) * 40) + 'px';
-        el.style.animationDuration = (0.4 + Math.random() * 0.4) + 's';
-        document.body.appendChild(el);
-        setTimeout(() => el.remove(), 800);
-      }
-    });
-
     // ── Confetti on signup ──
     function fireConfetti() {
       const colors = ['#f2d4d7', '#d5c8e6', '#c8dbc5', '#f5e6a3', '#c4d7eb', '#f5d5c0', '#f0b8b8', '#a78bfa'];
